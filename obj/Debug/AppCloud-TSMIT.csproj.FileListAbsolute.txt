@@ -1,0 +1,14 @@
+C:\Users\João Victor\Desktop\TRABALHO\AppCloud-TSMIT\bin\Debug\AppCloud-TSMIT.exe.config
+C:\Users\João Victor\Desktop\TRABALHO\AppCloud-TSMIT\bin\Debug\AppCloud-TSMIT.exe
+C:\Users\João Victor\Desktop\TRABALHO\AppCloud-TSMIT\bin\Debug\AppCloud-TSMIT.pdb
+C:\Users\João Victor\Desktop\TRABALHO\AppCloud-TSMIT\obj\Debug\AppCloud-TSMIT.csproj.AssemblyReference.cache
+C:\Users\João Victor\Desktop\TRABALHO\AppCloud-TSMIT\obj\Debug\AppCloud-TSMIT.csproj.SuggestedBindingRedirects.cache
+C:\Users\João Victor\Desktop\TRABALHO\AppCloud-TSMIT\obj\Debug\AppCloud_TSMIT.Form_MenuPrincipal.resources
+C:\Users\João Victor\Desktop\TRABALHO\AppCloud-TSMIT\obj\Debug\AppCloud_TSMIT.Properties.Resources.resources
+C:\Users\João Victor\Desktop\TRABALHO\AppCloud-TSMIT\obj\Debug\AppCloud-TSMIT.csproj.GenerateResource.cache
+C:\Users\João Victor\Desktop\TRABALHO\AppCloud-TSMIT\obj\Debug\AppCloud-TSMIT.csproj.CoreCompileInputs.cache
+C:\Users\João Victor\Desktop\TRABALHO\AppCloud-TSMIT\obj\Debug\AppCloud-TSMIT.exe
+C:\Users\João Victor\Desktop\TRABALHO\AppCloud-TSMIT\obj\Debug\AppCloud-TSMIT.pdb
+C:\Users\João Victor\Desktop\TRABALHO\AppCloud-TSMIT\bin\Debug\pt-BR\AppCloud-TSMIT.resources.dll
+C:\Users\João Victor\Desktop\TRABALHO\AppCloud-TSMIT\obj\Debug\AppCloud_TSMIT.Form_MenuPrincipal.pt-BR.resources
+C:\Users\João Victor\Desktop\TRABALHO\AppCloud-TSMIT\obj\Debug\pt-BR\AppCloud-TSMIT.resources.dll
