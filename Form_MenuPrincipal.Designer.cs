@@ -29,18 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_MenuPrincipal));
-            this.label1 = new System.Windows.Forms.Label();
+            this.imgAgro = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAgro)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // imgAgro
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(214, 225);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Agro";
+            this.imgAgro.Image = ((System.Drawing.Image)(resources.GetObject("imgAgro.Image")));
+            this.imgAgro.Location = new System.Drawing.Point(403, 141);
+            this.imgAgro.Name = "imgAgro";
+            this.imgAgro.Size = new System.Drawing.Size(87, 91);
+            this.imgAgro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgAgro.TabIndex = 0;
+            this.imgAgro.TabStop = false;
+            this.imgAgro.DoubleClick += new System.EventHandler(this.imgAgro_DoubleClick);
             // 
             // Form_MenuPrincipal
             // 
@@ -50,19 +52,21 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(897, 402);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.imgAgro);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_MenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TSMIT - Aplicação Cloud";
             this.Load += new System.EventHandler(this.Form_MenuPrincipal_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.imgAgro)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
+
+        private System.Windows.Forms.PictureBox imgAgro;
     }
 }
 
