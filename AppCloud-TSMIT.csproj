@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MediaBrowser.Common, Version=4.7.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MediaBrowser.Common.4.7.9\lib\netstandard2.0\MediaBrowser.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MediaBrowser.Model, Version=4.7.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MediaBrowser.Common.4.7.9\lib\netstandard2.0\MediaBrowser.Model.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices.AccountManagement" />
@@ -48,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dominio\ClientConnection.cs" />
     <Compile Include="Dominio\Host.cs" />
     <Compile Include="Dominio\Usuario.cs" />
     <Compile Include="Form_MenuLogin.cs">
@@ -82,6 +89,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

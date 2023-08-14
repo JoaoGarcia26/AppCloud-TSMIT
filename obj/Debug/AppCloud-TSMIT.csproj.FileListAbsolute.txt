@@ -27,3 +27,8 @@ C:\Users\João Victor\Documents\GitHub\AppCloud-TSMIT\obj\Debug\pt-BR\AppCloud-T
 C:\Users\João Victor\Documents\GitHub\AppCloud-TSMIT\obj\Debug\AppCloud-TSMIT.exe
 C:\Users\João Victor\Documents\GitHub\AppCloud-TSMIT\obj\Debug\AppCloud-TSMIT.pdb
 C:\Users\João Victor\Documents\GitHub\AppCloud-TSMIT\obj\Debug\AppCloud_TSMIT.Form_MenuLogin.resources
+C:\Users\João Victor\Documents\GitHub\AppCloud-TSMIT\bin\Debug\MediaBrowser.Common.dll
+C:\Users\João Victor\Documents\GitHub\AppCloud-TSMIT\bin\Debug\MediaBrowser.Model.dll
+C:\Users\João Victor\Documents\GitHub\AppCloud-TSMIT\bin\Debug\MediaBrowser.Common.pdb
+C:\Users\João Victor\Documents\GitHub\AppCloud-TSMIT\bin\Debug\MediaBrowser.Model.pdb
+C:\Users\João Victor\Documents\GitHub\AppCloud-TSMIT\obj\Debug\AppCloud-TSMIT.csproj.CopyComplete

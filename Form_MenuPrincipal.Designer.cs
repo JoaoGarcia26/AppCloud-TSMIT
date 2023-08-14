@@ -58,7 +58,6 @@
             this.Name = "Form_MenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TSMIT - Aplicação Cloud";
-            this.Load += new System.EventHandler(this.Form_MenuPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgAgro)).EndInit();
             this.ResumeLayout(false);
 
