@@ -1,0 +1,4 @@
+AVISO: Editar somente o conteudo das variaveis!
+Ip_Servidor=179.189.84.196
+Porta_Aplicacao=491
+Porta_Controller=24442

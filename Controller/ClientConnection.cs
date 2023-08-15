@@ -1,9 +1,10 @@
-﻿using System;
+﻿using AppCloud_TSMIT.Dominio;
+using System;
 using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
 
-namespace AppCloud_TSMIT.Dominio
+namespace AppCloud_TSMIT.Controller
 {
     public class ClientConnection
     {
@@ -11,10 +12,9 @@ namespace AppCloud_TSMIT.Dominio
         public bool SocketConnection(Host host, string credenciais)
         {
             string serverIpAddress = host.Url;
-            int serverPort = 24442;
+            int serverPort = host.PortController;
 
-            try { 
-
+            try {
                 TcpClient client = new TcpClient();
                 client.Connect(serverIpAddress, serverPort);
 

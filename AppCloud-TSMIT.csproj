@@ -54,7 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dominio\ClientConnection.cs" />
+    <Compile Include="Controller\ClientConnection.cs" />
+    <Compile Include="Controller\ConfigController.cs" />
     <Compile Include="Dominio\Host.cs" />
     <Compile Include="Dominio\Usuario.cs" />
     <Compile Include="Form_MenuLogin.cs">

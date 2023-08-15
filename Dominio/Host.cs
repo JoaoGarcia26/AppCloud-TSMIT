@@ -1,13 +1,17 @@
-﻿namespace AppCloud_TSMIT.Dominio
+﻿using System;
+
+namespace AppCloud_TSMIT.Dominio
 {
     public class Host
     {
-        public Host()
+        public Host(string url, int portApp, int portController)
         {
-            Url = "179.189.84.196";
-            Port = 491;
+            Url = url;
+            Port_App = portApp;
+            PortController = portController;
         }
         public string Url { get; set; }
-        public int Port { get; set; }
+        public int Port_App { get; set; }
+        public int PortController { get; set; }
     }
 }

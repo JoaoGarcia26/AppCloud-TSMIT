@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AppCloud_TSMIT.Controller;
+using System;
 using System.Windows.Forms;
 
 namespace AppCloud_TSMIT

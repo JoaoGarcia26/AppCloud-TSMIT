@@ -1,4 +1,5 @@
-﻿using AppCloud_TSMIT.Dominio;
+﻿using AppCloud_TSMIT.Controller;
+using AppCloud_TSMIT.Dominio;
 using System;
 using System.DirectoryServices.AccountManagement;
 using System.Windows.Forms;
@@ -10,10 +11,13 @@ namespace AppCloud_TSMIT
         public Host host;
         public Usuario usuario;
         public ClientConnection connection;
+        public ConfigController config;
 
         public Form_MenuLogin()
         {
             InitializeComponent();
+            config = new ConfigController();
+            host = new Host(config.GetIpServer(), config.GetPortApp(), config.GetPortController());
             connection = new ClientConnection();
         }
 
@@ -21,7 +25,6 @@ namespace AppCloud_TSMIT
         {
             if (!string.IsNullOrEmpty(txt_User.Text) && !string.IsNullOrEmpty(txt_Pass.Text))
             {
-                Host host = new Host();
                 Usuario usuario = new Usuario(txt_User.Text, txt_Pass.Text);
 
                 string credenciais = $"{txt_User.Text}:{txt_Pass.Text}";
