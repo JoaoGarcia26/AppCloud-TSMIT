@@ -12,7 +12,7 @@ namespace AppCloud_TSMIT.Controller
         public bool SocketConnection(Host host, string credenciais)
         {
             string serverIpAddress = host.Url;
-            int serverPort = host.PortController;
+            int serverPort = host.Port_Controller;
 
             try {
                 TcpClient client = new TcpClient();
@@ -41,8 +41,9 @@ namespace AppCloud_TSMIT.Controller
                 {
                     result = false;
                 }
-            } catch {
-                MessageBox.Show("Servidor/Controller desligado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } catch (System.Net.Sockets.SocketException)
+            {
+                MessageBox.Show("Servidor ou controller desligado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 result = false;
             }
             return result;

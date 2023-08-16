@@ -6,10 +6,8 @@ namespace AppCloud_TSMIT.Controller
 {
     public class ConfigController
     {
-
         public ConfigController() 
         {
-            CriarArquivoDeConfiguracao("config.txt");
             ReadConfigFile();
         }
         private Dictionary<string, string> settings = new Dictionary<string, string>();
@@ -82,10 +80,10 @@ namespace AppCloud_TSMIT.Controller
             {
                 using (StreamWriter writer = File.CreateText(configFile))
                 {
-                    writer.WriteLine("AVISO: Editar somente o conteudo das variaveis!");
-                    writer.WriteLine("Ip_Servidor=179.189.84.196 //Altere para o IP do Host");
-                    writer.WriteLine("Porta_Aplicacao=491 //Padrão");
-                    writer.WriteLine("Porta_Controller=24442 //Padrão");
+                    writer.WriteLine("#AVISO: Editar somente o conteudo das variaveis!");
+                    writer.WriteLine("Ip_Servidor=179.189.84.196");
+                    writer.WriteLine("Porta_Aplicacao=491");
+                    writer.WriteLine("Porta_Controller=24442");
                 }
                 Console.WriteLine("Arquivo de configuração criado: " + configFile);
             }

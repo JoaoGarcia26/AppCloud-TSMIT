@@ -8,10 +8,10 @@ namespace AppCloud_TSMIT.Dominio
         {
             Url = url;
             Port_App = portApp;
-            PortController = portController;
+            Port_Controller = portController;
         }
         public string Url { get; set; }
         public int Port_App { get; set; }
-        public int PortController { get; set; }
+        public int Port_Controller { get; set; }
     }
 }
