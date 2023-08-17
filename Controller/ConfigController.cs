@@ -9,13 +9,13 @@ namespace AppCloud_TSMIT.Controller
         public ConfigController() 
         {
             ReadConfigFile();
+            
         }
-        private Dictionary<string, string> settings = new Dictionary<string, string>();
+        private readonly Dictionary<string, string> settings = new Dictionary<string, string>();
         public Dictionary<string, string> ReadConfigFile()
         {
             string configFile = "config.txt";
             CriarArquivoDeConfiguracao(configFile); // Cria o arquivo de configuração se não existir
-
             try
             {
                 using (StreamReader reader = new StreamReader(configFile))
@@ -74,6 +74,55 @@ namespace AppCloud_TSMIT.Controller
             return port;
         }
 
+        public bool ExistAgro()
+        {
+            bool result = new bool();
+            if (settings.TryGetValue("Agro", out string Agro))
+            {
+                result = bool.Parse(Agro);
+            }
+            return result;
+        }
+
+        public bool ExistNeo()
+        {
+            bool result = new bool();
+            if (settings.TryGetValue("Neo", out string Neo))
+            {
+                result = bool.Parse(Neo);
+            }
+            return result;
+        }
+        public bool ExistTouchComp()
+        {
+            bool result = new bool();
+            if (settings.TryGetValue("TouchComp", out string TouchComp))
+            {
+                result = bool.Parse(TouchComp);
+            }
+            return result;
+        }
+
+        public bool ExistPastaDesktop()
+        {
+            bool result = new bool();
+            if (settings.TryGetValue("Pasta_Desktop", out string PastaDesktop))
+            {
+                result = bool.Parse(PastaDesktop);
+            }
+            return result;
+        }
+
+        public string GetDiretorioPastaDesktop()
+        {
+            string diretorio = null;
+            if (settings.TryGetValue("Pasta_Desktop_Diretorio", out string diretorioPasta))
+            {
+                diretorio = diretorioPasta;
+            }
+            return diretorio;
+        }
+
         private void CriarArquivoDeConfiguracao(string configFile)
         {
             if (!File.Exists(configFile))
@@ -81,9 +130,17 @@ namespace AppCloud_TSMIT.Controller
                 using (StreamWriter writer = File.CreateText(configFile))
                 {
                     writer.WriteLine("#AVISO: Editar somente o conteudo das variaveis!");
+                    writer.WriteLine();
                     writer.WriteLine("Ip_Servidor=179.189.84.196");
                     writer.WriteLine("Porta_Aplicacao=491");
                     writer.WriteLine("Porta_Controller=24442");
+                    writer.WriteLine();
+                    writer.WriteLine("Agro=false");
+                    writer.WriteLine("Neo=true");
+                    writer.WriteLine("TouchComp=false");
+                    writer.WriteLine();
+                    writer.WriteLine("Pasta_Desktop=true");
+                    writer.WriteLine(@"Pasta_Desktop_Diretorio=C:\\Users\\João Victor\\Desktop");
                 }
                 Console.WriteLine("Arquivo de configuração criado: " + configFile);
             }

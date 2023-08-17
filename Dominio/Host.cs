@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace AppCloud_TSMIT.Dominio
+﻿namespace AppCloud_TSMIT.Dominio
 {
     public class Host
     {

@@ -1,4 +1,5 @@
 ﻿using AppCloud_TSMIT.Dominio;
+using System;
 using System.Windows.Forms;
 
 namespace AppCloud_TSMIT.Controller
@@ -7,10 +8,16 @@ namespace AppCloud_TSMIT.Controller
     {
         private readonly ClientConnection connection;
         private readonly Host host;
+        private readonly ApplicationController appController;
+        private readonly ConfigController configController;
+        private readonly Form_MenuLogin form_MenuLogin;
         private Usuario usuario;
-        public LoginController(ConfigController config) 
+        public LoginController(ConfigController config, Form_MenuLogin formLogin) 
         { 
+            configController = config;
+            form_MenuLogin = formLogin;
             connection = new ClientConnection();
+            appController = new ApplicationController(configController);
             host = new Host(config.GetIpServer(), config.GetPortApp(), config.GetPortController());
         }
         public void RequestAndResultLogin(string txt_User, string txt_Pass)
@@ -24,8 +31,8 @@ namespace AppCloud_TSMIT.Controller
                 bool isValid = connection.SocketConnection(host, credenciais);
                 if (isValid == true)
                 {
-                    Form_MenuPrincipal form_MenuPrincipal = new Form_MenuPrincipal(host, usuario);
-                    form_MenuPrincipal.ShowDialog();
+                    Form_MenuPrincipal form_MenuPrincipal = new Form_MenuPrincipal(host, usuario, form_MenuLogin);
+                    appController.VerificaAplicacoes(form_MenuPrincipal);
                 }
                 else
                 {

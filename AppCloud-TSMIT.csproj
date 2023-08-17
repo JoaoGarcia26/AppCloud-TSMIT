@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\ApplicationController.cs" />
     <Compile Include="Controller\ClientConnection.cs" />
     <Compile Include="Controller\ConfigController.cs" />
     <Compile Include="Controller\LoginController.cs" />

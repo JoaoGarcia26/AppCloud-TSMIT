@@ -43,6 +43,7 @@ namespace AppCloud_TSMIT
             // 
             // btn_Entrar
             // 
+            this.btn_Entrar.ForeColor = System.Drawing.SystemColors.WindowText;
             this.btn_Entrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Entrar.Location = new System.Drawing.Point(378, 23);
             this.btn_Entrar.Name = "btn_Entrar";
@@ -60,6 +61,7 @@ namespace AppCloud_TSMIT
             this.btn_Suporte.TabIndex = 1;
             this.btn_Suporte.Text = "Suporte";
             this.btn_Suporte.UseVisualStyleBackColor = true;
+            this.btn_Suporte.Click += new System.EventHandler(this.btn_Suporte_Click);
             // 
             // pictureBox1
             // 
@@ -81,6 +83,7 @@ namespace AppCloud_TSMIT
             this.txt_User.Name = "txt_User";
             this.txt_User.Size = new System.Drawing.Size(216, 22);
             this.txt_User.TabIndex = 3;
+            this.txt_User.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_User_KeyDown);
             // 
             // txt_Pass
             // 
@@ -89,6 +92,7 @@ namespace AppCloud_TSMIT
             this.txt_Pass.PasswordChar = '*';
             this.txt_Pass.Size = new System.Drawing.Size(216, 22);
             this.txt_Pass.TabIndex = 4;
+            this.txt_Pass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_Pass_KeyDown);
             // 
             // label1
             // 
@@ -114,6 +118,7 @@ namespace AppCloud_TSMIT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(490, 163);
             this.Controls.Add(this.label2);
@@ -127,6 +132,7 @@ namespace AppCloud_TSMIT
             this.Name = "Form_MenuLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TSMIT - Login";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_MenuLogin_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
