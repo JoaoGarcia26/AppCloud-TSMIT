@@ -1,7 +1,7 @@
-﻿using System;
+﻿using AppCloud_TSMIT.Dominio;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace AppCloud_TSMIT.Controller
@@ -9,8 +9,7 @@ namespace AppCloud_TSMIT.Controller
     public class ApplicationController
     {
         private readonly ConfigController configController;
-
-        private readonly Dictionary<Image, string> imagens = new Dictionary<Image, string>();
+        public readonly Dictionary<Image, string> imagens = new Dictionary<Image, string>();
         public ApplicationController(ConfigController config)
         {
             configController = config;
@@ -35,7 +34,7 @@ namespace AppCloud_TSMIT.Controller
             else if (touchComp == true && neo == false && agro == false)
             {
                 //IMPLEMENTA O TOUCHCOMP ITEM
-                imagens.Add(Image.FromFile(@"C:\Users\João Victor\Documents\GitHub\AppCloud-TSMIT\Assets\touchComp.png"), "touchComp");
+                imagens.Add(Image.FromFile(@"C:\Users\João Victor\Documents\GitHub\AppCloud-TSMIT\Assets\touchComp.png"), "touchcomp");
                 Console.WriteLine("Touch Comp visivel");
                 VerificaPasta(form);
                 AlinhaImagens(form);
@@ -76,10 +75,10 @@ namespace AppCloud_TSMIT.Controller
             bool pastaDesktop = configController.ExistPastaDesktop();
             if (pastaDesktop == true)
             {
-                imagens.Add(Image.FromFile(@"C:\Users\João Victor\Documents\GitHub\AppCloud-TSMIT\Assets\pasta.png"), "pasta");
+                imagens.Add(Image.FromFile(@"C:\Users\João Victor\Documents\GitHub\AppCloud-TSMIT\Assets\pasta.png"), "pastaDesktop");
+                AlinhaImagens(form);
             }
         }
-
         public void AlinhaImagens(Form_MenuPrincipal form)
         {
             form.painel.Controls.Clear();
@@ -87,26 +86,70 @@ namespace AppCloud_TSMIT.Controller
             int totalImagens = imagens.Count;
             int painelWidth = form.painel.Width;
             int painelHeight = form.painel.Height;
+            int tamanhoColuna;
+            int colunaPrincipal;
+            int xOffset;
 
-            int imageWidth = painelWidth / totalImagens;
+            if (totalImagens == 1)
+            {
+                //CASO 1 IMAGEM, IRÁ PARTIR O PAINEL EM 3 E SETAR A IMAGEM NA SEGUNDA COLUNA
+                tamanhoColuna = painelWidth / 3;
+                colunaPrincipal = tamanhoColuna;
+                xOffset = tamanhoColuna;
+
+            } else
+            {
+                colunaPrincipal = painelWidth / totalImagens;
+                xOffset = 0;
+            }
+            
             int imageHeight = painelHeight;
-
-            int xOffset = 0;
 
             foreach (var imagemItem in imagens)
             {
-                Image imagem = imagemItem.Key;
+                if (imagemItem.Value == "agro")
+                {
+                    form.agroImg.Image = imagemItem.Key;
+                    form.agroImg.SizeMode = PictureBoxSizeMode.Zoom;
 
-                PictureBox pictureBox = new PictureBox();
-                pictureBox.Image = imagem;
-                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                    form.agroImg.Location = new Point(xOffset, 0);
+                    form.agroImg.Size = new Size(colunaPrincipal, imageHeight);
+                    form.agroImg.Tag = imagemItem.Value;
 
-                pictureBox.Location = new Point(xOffset, 0);
-                pictureBox.Size = new Size(imageWidth, imageHeight);
+                    form.painel.Controls.Add(form.agroImg);
+                } else if (imagemItem.Value == "neo")
+                {
+                    form.neoImg.Image = imagemItem.Key;
+                    form.neoImg.SizeMode = PictureBoxSizeMode.Zoom;
 
-                form.painel.Controls.Add(pictureBox);
+                    form.neoImg.Location = new Point(xOffset, 0);
+                    form.neoImg.Size = new Size(colunaPrincipal, imageHeight);
+                    form.neoImg.Tag = imagemItem.Value;
 
-                xOffset += imageWidth;
+                    form.painel.Controls.Add(form.neoImg);
+                } else if (imagemItem.Value == "touchcomp")
+                {
+                    form.touchImg.Image = imagemItem.Key;
+                    form.touchImg.SizeMode = PictureBoxSizeMode.Zoom;
+
+                    form.touchImg.Location = new Point(xOffset, 0);
+                    form.touchImg.Size = new Size(colunaPrincipal, imageHeight);
+                    form.touchImg.Tag = imagemItem.Value;
+
+                    form.painel.Controls.Add(form.touchImg);
+
+                } else if (imagemItem.Value == "pastaDesktop")
+                {
+                    form.pastaDesktopImg.Image = imagemItem.Key;
+                    form.pastaDesktopImg.SizeMode = PictureBoxSizeMode.Zoom;
+
+                    form.pastaDesktopImg.Location = new Point(xOffset, 0);
+                    form.pastaDesktopImg.Size = new Size(colunaPrincipal, imageHeight);
+                    form.pastaDesktopImg.Tag = imagemItem.Value;
+
+                    form.painel.Controls.Add(form.pastaDesktopImg);
+                }
+                xOffset += colunaPrincipal;
             }
         }
     }

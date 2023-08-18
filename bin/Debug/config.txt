@@ -9,4 +9,3 @@ Neo=true
 TouchComp=false
 
 Pasta_Desktop=true
-Pasta_Desktop_Diretorio=C:\\Users\\João Victor\\Desktop

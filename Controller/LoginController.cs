@@ -7,10 +7,11 @@ namespace AppCloud_TSMIT.Controller
     public class LoginController
     {
         private readonly ClientConnection connection;
-        private readonly Host host;
         private readonly ApplicationController appController;
         private readonly ConfigController configController;
         private readonly Form_MenuLogin form_MenuLogin;
+
+        private readonly Host host;
         private Usuario usuario;
         public LoginController(ConfigController config, Form_MenuLogin formLogin) 
         { 
@@ -31,7 +32,7 @@ namespace AppCloud_TSMIT.Controller
                 bool isValid = connection.SocketConnection(host, credenciais);
                 if (isValid == true)
                 {
-                    Form_MenuPrincipal form_MenuPrincipal = new Form_MenuPrincipal(host, usuario, form_MenuLogin);
+                    Form_MenuPrincipal form_MenuPrincipal = new Form_MenuPrincipal(host, usuario, form_MenuLogin, appController);
                     appController.VerificaAplicacoes(form_MenuPrincipal);
                 }
                 else

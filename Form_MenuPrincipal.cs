@@ -1,7 +1,5 @@
 ﻿using AppCloud_TSMIT.Dominio;
 using System;
-using System.Drawing;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using AppCloud_TSMIT.Controller;
 
@@ -13,18 +11,20 @@ namespace AppCloud_TSMIT
         private readonly Host host;
         private readonly Usuario usuario;
         private readonly Form_MenuLogin formLogin;
+        private readonly ApplicationController appController;
         
         public Form_MenuPrincipal()
         {
             InitializeComponent();
-            
+
         }
-        public Form_MenuPrincipal(Host host, Usuario usuario, Form_MenuLogin formLogin)
+        public Form_MenuPrincipal(Host host, Usuario usuario, Form_MenuLogin formLogin, ApplicationController appController)
         {
             InitializeComponent();
             this.host = host;
             this.usuario = usuario;
             this.formLogin = formLogin;
+            this.appController = appController;
         }
         private void Form_MenuPrincipal_Load(object sender, EventArgs e)
         {
@@ -35,41 +35,36 @@ namespace AppCloud_TSMIT
         {
             Application.Exit();
         }
-        private void appAgro_DoubleClick(object sender, EventArgs e)
+        private void Image_DoubleClick(object sender, EventArgs e)
         {
-            ChamadaDoProcessoApp("Agro");
-        }
-        private void appAgroLado_DoubleClick(object sender, EventArgs e)
-        {
-            ChamadaDoProcessoApp("Agro");
-        }
-        private void appNeo_DoubleClick(object sender, EventArgs e)
-        {
-            ChamadaDoProcessoApp("Neo");
-        }
-        private void appNeoLado_DoubleClick(object sender, EventArgs e)
-        {
-            ChamadaDoProcessoApp("Neo");
-        }
-        private void appTouchComp_DoubleClick(object sender, EventArgs e)
-        {
-            ChamadaDoProcessoApp("TouchComp");
-        }
-        private void appPastaDesktop_DoubleClick(object sender, EventArgs e)
-        {
-            ChamadaDoProcessoApp($"Desktop");
-        }
-        public void ChamadaDoProcessoApp(string app)
-        {
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-            startInfo.FileName = "C:\\Program Files (x86)\\GraphOn\\AppController\\AppController.exe";
-            startInfo.Arguments = $@"-h {host.Url} -u localhost\{usuario.Nome} -p {usuario.Senha} -a {app}";
+            PictureBox clickedImage = sender as PictureBox;
 
-            process.StartInfo = startInfo;
-            process.Start();
-            Console.WriteLine($"Chamando o processo {app}");
+            if (clickedImage != null)
+            {
+                string imageValue = clickedImage.Tag.ToString();
+
+                switch (imageValue)
+                {
+                    case "agro":
+                        ProcessController.ChamadaDoProcessoAppController(host, usuario, "Agro");
+                        break;
+
+                    case "neo":
+                        ProcessController.ChamadaDoProcessoAppController(host, usuario, "Neo");
+                        break;
+
+                    case "touchcomp":
+                        ProcessController.ChamadaDoProcessoAppController(host, usuario, "TouchComp");
+                        break;
+
+                    case "pastaDesktop":
+                        ProcessController.ChamadaDoProcessoAppController(host, usuario, "Desktop");
+                        break;
+
+                    default:
+                        break;
+                }
+            }
         }
     }
 }

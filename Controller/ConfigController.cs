@@ -140,7 +140,6 @@ namespace AppCloud_TSMIT.Controller
                     writer.WriteLine("TouchComp=false");
                     writer.WriteLine();
                     writer.WriteLine("Pasta_Desktop=true");
-                    writer.WriteLine(@"Pasta_Desktop_Diretorio=C:\\Users\\João Victor\\Desktop");
                 }
                 Console.WriteLine("Arquivo de configuração criado: " + configFile);
             }

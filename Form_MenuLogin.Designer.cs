@@ -132,6 +132,7 @@ namespace AppCloud_TSMIT
             this.Name = "Form_MenuLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TSMIT - Login";
+            this.Load += new System.EventHandler(this.Form_MenuLogin_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_MenuLogin_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

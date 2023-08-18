@@ -1,4 +1,6 @@
-﻿namespace AppCloud_TSMIT
+﻿using System.Windows.Forms;
+
+namespace AppCloud_TSMIT
 {
     partial class Form_MenuPrincipal
     {
@@ -29,14 +31,58 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_MenuPrincipal));
             this.painel = new System.Windows.Forms.Panel();
+            this.neoImg = new System.Windows.Forms.PictureBox();
+            this.agroImg = new System.Windows.Forms.PictureBox();
+            this.pastaDesktopImg = new System.Windows.Forms.PictureBox();
+            this.touchImg = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.agroImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.neoImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.touchImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pastaDesktopImg)).BeginInit();
             this.SuspendLayout();
             // 
             // painel
             // 
-            this.painel.Location = new System.Drawing.Point(133, 137);
+            this.painel.Location = new System.Drawing.Point(140, 133);
             this.painel.Name = "painel";
-            this.painel.Size = new System.Drawing.Size(627, 115);
-            this.painel.TabIndex = 6;
+            this.painel.Size = new System.Drawing.Size(614, 122);
+            this.painel.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.agroImg.Location = new System.Drawing.Point(12, 12);
+            this.agroImg.Name = "agroImg";
+            this.agroImg.Size = new System.Drawing.Size(100, 50);
+            this.agroImg.TabIndex = 1;
+            this.agroImg.TabStop = false;
+            this.agroImg.DoubleClick += new System.EventHandler(this.Image_DoubleClick);
+            // 
+            // pictureBox2
+            // 
+            this.neoImg.Location = new System.Drawing.Point(140, 12);
+            this.neoImg.Name = "neoImg";
+            this.neoImg.Size = new System.Drawing.Size(100, 50);
+            this.neoImg.TabIndex = 2;
+            this.neoImg.TabStop = false;
+            this.neoImg.DoubleClick += new System.EventHandler(this.Image_DoubleClick);
+            // 
+            // pictureBox3
+            // 
+            this.touchImg.Location = new System.Drawing.Point(286, 12);
+            this.touchImg.Name = "touchImg";
+            this.touchImg.Size = new System.Drawing.Size(100, 50);
+            this.touchImg.TabIndex = 3;
+            this.touchImg.TabStop = false;
+            this.touchImg.DoubleClick += new System.EventHandler(this.Image_DoubleClick);
+            // 
+            // pastaImg
+            // 
+            this.pastaDesktopImg.Location = new System.Drawing.Point(446, 12);
+            this.pastaDesktopImg.Name = "pastaDesktopImg";
+            this.pastaDesktopImg.Size = new System.Drawing.Size(100, 50);
+            this.pastaDesktopImg.TabIndex = 4;
+            this.pastaDesktopImg.TabStop = false;
+            pastaDesktopImg.DoubleClick += new System.EventHandler(this.Image_DoubleClick);
             // 
             // Form_MenuPrincipal
             // 
@@ -46,6 +92,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(897, 402);
+            this.Controls.Add(this.pastaDesktopImg);
+            this.Controls.Add(this.touchImg);
+            this.Controls.Add(this.neoImg);
+            this.Controls.Add(this.agroImg);
             this.Controls.Add(this.painel);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -54,12 +104,20 @@
             this.Text = "TSMIT - Aplicação Cloud";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_MenuPrincipal_FormClosed);
             this.Load += new System.EventHandler(this.Form_MenuPrincipal_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.agroImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.neoImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.touchImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pastaDesktopImg)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        public System.Windows.Forms.Panel painel;
+        public PictureBox agroImg;
+        public PictureBox neoImg;
+        public PictureBox touchImg;
+        public PictureBox pastaDesktopImg;
+        public Panel painel;
     }
 }
 

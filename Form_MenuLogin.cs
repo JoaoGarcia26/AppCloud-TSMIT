@@ -61,5 +61,10 @@ namespace AppCloud_TSMIT
                 btn_Entrar_Click(sender, e);
             }
         }
+
+        private void Form_MenuLogin_Load(object sender, EventArgs e)
+        {
+            txt_User.Select();
+        }
     }
 }

@@ -58,6 +58,7 @@
     <Compile Include="Controller\ClientConnection.cs" />
     <Compile Include="Controller\ConfigController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\ProcessController.cs" />
     <Compile Include="Dominio\Host.cs" />
     <Compile Include="Dominio\Usuario.cs" />
     <Compile Include="Form_MenuLogin.cs">
