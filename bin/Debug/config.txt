@@ -4,9 +4,9 @@ Ip_Servidor=179.189.84.196
 Porta_Aplicacao=491
 Porta_Controller=24442
 
-Agro=false
-Neo=false
-TouchComp=true
+Agro=true
+Neo=true
+TouchComp=false
 
 Pasta_Desktop=true
 Pasta_Desktop_Diretorio=C:\\Users\\João Victor\\Desktop

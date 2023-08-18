@@ -1,6 +1,9 @@
 ﻿using AppCloud_TSMIT.Dominio;
 using System;
+using System.Drawing;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using AppCloud_TSMIT.Controller;
 
 namespace AppCloud_TSMIT
 {
@@ -10,15 +13,17 @@ namespace AppCloud_TSMIT
         private readonly Host host;
         private readonly Usuario usuario;
         private readonly Form_MenuLogin formLogin;
+        
         public Form_MenuPrincipal()
         {
             InitializeComponent();
+            
         }
-        public Form_MenuPrincipal(Host host, Usuario user, Form_MenuLogin formLogin)
+        public Form_MenuPrincipal(Host host, Usuario usuario, Form_MenuLogin formLogin)
         {
             InitializeComponent();
             this.host = host;
-            this.usuario = user;
+            this.usuario = usuario;
             this.formLogin = formLogin;
         }
         private void Form_MenuPrincipal_Load(object sender, EventArgs e)
