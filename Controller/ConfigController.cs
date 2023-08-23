@@ -14,10 +14,15 @@ namespace AppCloud_TSMIT.Controller
         private readonly Dictionary<string, string> settings = new Dictionary<string, string>();
         public Dictionary<string, string> ReadConfigFile()
         {
-            string configFile = "config.txt";
-            CriarArquivoDeConfiguracao(configFile); // Cria o arquivo de configuração se não existir
+            string path = @"C:\TSMIT AppCloud";
+            string configFile = "C:\\TSMIT AppCloud\\config.txt";
+            CriarArquivoDeConfiguracao(path, configFile); // Cria o arquivo de configuração se não existir
             try
             {
+                if (!File.Exists(configFile))
+                {
+                    CriarArquivoDeConfiguracao(path, configFile);
+                }
                 using (StreamReader reader = new StreamReader(configFile))
                 {
                     while (!reader.EndOfStream)
@@ -38,7 +43,7 @@ namespace AppCloud_TSMIT.Controller
             }
             catch (IOException ex)
             {
-                Console.WriteLine("Erro ao ler o arquivo de config: " + ex.Message);
+                Console.WriteLine($"Erro ao ler o arquivo de config: " + ex.Message);
             }
 
             return settings;
@@ -52,6 +57,15 @@ namespace AppCloud_TSMIT.Controller
                 ip = serverAddress;
             }
             return ip;
+        }
+        public string GetNomeServidor()
+        {
+            string result = null;
+            if (settings.TryGetValue("Nome_Servidor", out string NomeServidor))
+            {
+                result = NomeServidor;
+            }
+            return result;
         }
 
         public int GetPortApp()
@@ -113,25 +127,35 @@ namespace AppCloud_TSMIT.Controller
             return result;
         }
 
-        public string GetDiretorioPastaDesktop()
+        private void CriarArquivoDeConfiguracao(string path, string configFile)
         {
-            string diretorio = null;
-            if (settings.TryGetValue("Pasta_Desktop_Diretorio", out string diretorioPasta))
+            if (!Directory.Exists(path))
             {
-                diretorio = diretorioPasta;
-            }
-            return diretorio;
-        }
-
-        private void CriarArquivoDeConfiguracao(string configFile)
-        {
-            if (!File.Exists(configFile))
+                Directory.CreateDirectory(path);
+                using (StreamWriter writer = File.CreateText(configFile))
+                {
+                    writer.WriteLine("#AVISO: Editar somente o conteudo das variaveis!");
+                    writer.WriteLine();
+                    writer.WriteLine("Ip_Servidor=179.189.84.196");
+                    writer.WriteLine("Nome_Servidor=SRV-DADOS");
+                    writer.WriteLine("Porta_Aplicacao=491");
+                    writer.WriteLine("Porta_Controller=24442");
+                    writer.WriteLine();
+                    writer.WriteLine("Agro=false");
+                    writer.WriteLine("Neo=true");
+                    writer.WriteLine("TouchComp=false");
+                    writer.WriteLine();
+                    writer.WriteLine("Pasta_Desktop=true");
+                }
+                Console.WriteLine("Arquivo de configuração criado: " + configFile);
+            } else if (!File.Exists(configFile))
             {
                 using (StreamWriter writer = File.CreateText(configFile))
                 {
                     writer.WriteLine("#AVISO: Editar somente o conteudo das variaveis!");
                     writer.WriteLine();
                     writer.WriteLine("Ip_Servidor=179.189.84.196");
+                    writer.WriteLine("Nome_Servidor=SRV-DADOS");
                     writer.WriteLine("Porta_Aplicacao=491");
                     writer.WriteLine("Porta_Controller=24442");
                     writer.WriteLine();

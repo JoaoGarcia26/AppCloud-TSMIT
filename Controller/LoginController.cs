@@ -32,7 +32,7 @@ namespace AppCloud_TSMIT.Controller
                 bool isValid = connection.SocketConnection(host, credenciais);
                 if (isValid == true)
                 {
-                    Form_MenuPrincipal form_MenuPrincipal = new Form_MenuPrincipal(host, usuario, form_MenuLogin, appController);
+                    Form_MenuPrincipal form_MenuPrincipal = new Form_MenuPrincipal(host, usuario, form_MenuLogin, configController);
                     appController.VerificaAplicacoes(form_MenuPrincipal);
                 }
                 else

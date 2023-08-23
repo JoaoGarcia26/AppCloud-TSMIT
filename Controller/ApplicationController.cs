@@ -24,8 +24,10 @@ namespace AppCloud_TSMIT.Controller
             if ((agro == true && neo == true && touchComp == false))
             {
                 //IMPLEMANTA AGRO E NEO ITEM
-                imagens.Add(Image.FromFile(@"C:\Users\João Victor\Documents\GitHub\AppCloud-TSMIT\Assets\neo.png"), "neo");
-                imagens.Add(Image.FromFile(@"C:\Users\João Victor\Documents\GitHub\AppCloud-TSMIT\Assets\agro.png"), "agro");
+                Image agroImage = Properties.Resources.agro;
+                Image neoImage = Properties.Resources.neo;
+                imagens.Add(agroImage, "agro");
+                imagens.Add(neoImage, "neo");
                 Console.WriteLine("Agro e Neo visivel");
                 VerificaPasta(form);
                 AlinhaImagens(form);
@@ -34,7 +36,8 @@ namespace AppCloud_TSMIT.Controller
             else if (touchComp == true && neo == false && agro == false)
             {
                 //IMPLEMENTA O TOUCHCOMP ITEM
-                imagens.Add(Image.FromFile(@"C:\Users\João Victor\Documents\GitHub\AppCloud-TSMIT\Assets\touchComp.png"), "touchcomp");
+                Image touchCompImage = Properties.Resources.touchComp;
+                imagens.Add(touchCompImage, "touchcomp");
                 Console.WriteLine("Touch Comp visivel");
                 VerificaPasta(form);
                 AlinhaImagens(form);
@@ -49,7 +52,8 @@ namespace AppCloud_TSMIT.Controller
             else if (agro == true && neo == false && touchComp == false)
             {
                 //IMPLEMENTA O AGRO ITEM
-                imagens.Add(Image.FromFile(@"C:\Users\João Victor\Documents\GitHub\AppCloud-TSMIT\Assets\agro.png"), "agro");
+                Image agroImage = Properties.Resources.agro;
+                imagens.Add(agroImage, "agro");
                 Console.WriteLine("Agro visivel");
                 VerificaPasta(form);
                 AlinhaImagens(form);
@@ -58,7 +62,8 @@ namespace AppCloud_TSMIT.Controller
             else if (neo == true && agro == false && touchComp == false)
             {
                 //IMPLEMENTA O NEO ITEM
-                imagens.Add(Image.FromFile(@"C:\Users\João Victor\Documents\GitHub\AppCloud-TSMIT\Assets\neo.png"), "neo");
+                Image neoImage = Properties.Resources.neo;
+                imagens.Add(neoImage, "neo");
                 Console.WriteLine("Neo visivel");
                 VerificaPasta(form);
                 AlinhaImagens(form);
@@ -75,7 +80,8 @@ namespace AppCloud_TSMIT.Controller
             bool pastaDesktop = configController.ExistPastaDesktop();
             if (pastaDesktop == true)
             {
-                imagens.Add(Image.FromFile(@"C:\Users\João Victor\Documents\GitHub\AppCloud-TSMIT\Assets\pasta.png"), "pastaDesktop");
+                Image pastaDesktopImage = Properties.Resources.pasta;
+                imagens.Add(pastaDesktopImage, "pastaDesktop");
                 AlinhaImagens(form);
             }
         }

@@ -35,10 +35,10 @@ namespace AppCloud_TSMIT
             this.agroImg = new System.Windows.Forms.PictureBox();
             this.pastaDesktopImg = new System.Windows.Forms.PictureBox();
             this.touchImg = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.agroImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.neoImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.touchImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agroImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pastaDesktopImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.touchImg)).BeginInit();
             this.SuspendLayout();
             // 
             // painel
@@ -48,16 +48,7 @@ namespace AppCloud_TSMIT
             this.painel.Size = new System.Drawing.Size(614, 122);
             this.painel.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            this.agroImg.Location = new System.Drawing.Point(12, 12);
-            this.agroImg.Name = "agroImg";
-            this.agroImg.Size = new System.Drawing.Size(100, 50);
-            this.agroImg.TabIndex = 1;
-            this.agroImg.TabStop = false;
-            this.agroImg.DoubleClick += new System.EventHandler(this.Image_DoubleClick);
-            // 
-            // pictureBox2
+            // neoImg
             // 
             this.neoImg.Location = new System.Drawing.Point(140, 12);
             this.neoImg.Name = "neoImg";
@@ -66,7 +57,25 @@ namespace AppCloud_TSMIT
             this.neoImg.TabStop = false;
             this.neoImg.DoubleClick += new System.EventHandler(this.Image_DoubleClick);
             // 
-            // pictureBox3
+            // agroImg
+            // 
+            this.agroImg.Location = new System.Drawing.Point(12, 12);
+            this.agroImg.Name = "agroImg";
+            this.agroImg.Size = new System.Drawing.Size(100, 50);
+            this.agroImg.TabIndex = 1;
+            this.agroImg.TabStop = false;
+            this.agroImg.DoubleClick += new System.EventHandler(this.Image_DoubleClick);
+            // 
+            // pastaDesktopImg
+            // 
+            this.pastaDesktopImg.Location = new System.Drawing.Point(446, 12);
+            this.pastaDesktopImg.Name = "pastaDesktopImg";
+            this.pastaDesktopImg.Size = new System.Drawing.Size(100, 50);
+            this.pastaDesktopImg.TabIndex = 4;
+            this.pastaDesktopImg.TabStop = false;
+            this.pastaDesktopImg.DoubleClick += new System.EventHandler(this.Image_DoubleClick);
+            // 
+            // touchImg
             // 
             this.touchImg.Location = new System.Drawing.Point(286, 12);
             this.touchImg.Name = "touchImg";
@@ -75,21 +84,12 @@ namespace AppCloud_TSMIT
             this.touchImg.TabStop = false;
             this.touchImg.DoubleClick += new System.EventHandler(this.Image_DoubleClick);
             // 
-            // pastaImg
-            // 
-            this.pastaDesktopImg.Location = new System.Drawing.Point(446, 12);
-            this.pastaDesktopImg.Name = "pastaDesktopImg";
-            this.pastaDesktopImg.Size = new System.Drawing.Size(100, 50);
-            this.pastaDesktopImg.TabIndex = 4;
-            this.pastaDesktopImg.TabStop = false;
-            pastaDesktopImg.DoubleClick += new System.EventHandler(this.Image_DoubleClick);
-            // 
             // Form_MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::AppCloud_TSMIT.Properties.Resources.wallpaperBrancoBMP;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(897, 402);
             this.Controls.Add(this.pastaDesktopImg);
@@ -104,10 +104,10 @@ namespace AppCloud_TSMIT
             this.Text = "TSMIT - Aplicação Cloud";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_MenuPrincipal_FormClosed);
             this.Load += new System.EventHandler(this.Form_MenuPrincipal_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.agroImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.neoImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.touchImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agroImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pastaDesktopImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.touchImg)).EndInit();
             this.ResumeLayout(false);
 
         }

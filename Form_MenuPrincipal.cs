@@ -11,20 +11,20 @@ namespace AppCloud_TSMIT
         private readonly Host host;
         private readonly Usuario usuario;
         private readonly Form_MenuLogin formLogin;
-        private readonly ApplicationController appController;
+        private readonly ConfigController configController;
         
         public Form_MenuPrincipal()
         {
             InitializeComponent();
 
         }
-        public Form_MenuPrincipal(Host host, Usuario usuario, Form_MenuLogin formLogin, ApplicationController appController)
+        public Form_MenuPrincipal(Host host, Usuario usuario, Form_MenuLogin formLogin, ConfigController config)
         {
             InitializeComponent();
             this.host = host;
             this.usuario = usuario;
             this.formLogin = formLogin;
-            this.appController = appController;
+            this.configController = config;
         }
         private void Form_MenuPrincipal_Load(object sender, EventArgs e)
         {
@@ -46,19 +46,19 @@ namespace AppCloud_TSMIT
                 switch (imageValue)
                 {
                     case "agro":
-                        ProcessController.ChamadaDoProcessoAppController(host, usuario, "Agro");
+                        ProcessController.ChamadaDoProcessoAppController(host, usuario, configController, "Agro");
                         break;
 
                     case "neo":
-                        ProcessController.ChamadaDoProcessoAppController(host, usuario, "Neo");
+                        ProcessController.ChamadaDoProcessoAppController(host, usuario, configController, "Neo");
                         break;
 
                     case "touchcomp":
-                        ProcessController.ChamadaDoProcessoAppController(host, usuario, "TouchComp");
+                        ProcessController.ChamadaDoProcessoAppController(host, usuario, configController, "TouchComp");
                         break;
 
                     case "pastaDesktop":
-                        ProcessController.ChamadaDoProcessoAppController(host, usuario, "Desktop");
+                        ProcessController.ChamadaDoProcessoAppController(host, usuario, configController, "Desktop");
                         break;
 
                     default:
