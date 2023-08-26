@@ -1,5 +1,5 @@
 ﻿using AppCloud_TSMIT.Dominio;
-using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AppCloud_TSMIT.Controller
@@ -9,6 +9,7 @@ namespace AppCloud_TSMIT.Controller
         private readonly ClientConnection connection;
         private readonly ApplicationController appController;
         private readonly ConfigController configController;
+        private readonly HashPassword hashPassword;
         private readonly Form_MenuLogin form_MenuLogin;
 
         private readonly Host host;
@@ -19,9 +20,10 @@ namespace AppCloud_TSMIT.Controller
             form_MenuLogin = formLogin;
             connection = new ClientConnection();
             appController = new ApplicationController(configController);
+            hashPassword = new HashPassword();
             host = new Host(config.GetIpServer(), config.GetPortApp(), config.GetPortController());
         }
-        public void RequestAndResultLogin(string txt_User, string txt_Pass)
+        public async Task RequestAndResultLogin(string txt_User, string txt_Pass)
         {
             if (!string.IsNullOrEmpty(txt_User) && !string.IsNullOrEmpty(txt_Pass))
             {
@@ -29,11 +31,15 @@ namespace AppCloud_TSMIT.Controller
 
                 string credenciais = $"{txt_User}:{txt_Pass}";
 
-                bool isValid = connection.SocketConnection(host, credenciais);
+                bool isValid = await connection.SocketConnectionAsync(host, credenciais);
                 if (isValid == true)
                 {
                     Form_MenuPrincipal form_MenuPrincipal = new Form_MenuPrincipal(host, usuario, form_MenuLogin, configController);
                     appController.VerificaAplicacoes(form_MenuPrincipal);
+                    if (form_MenuLogin.box_LembrarMe.CheckState == CheckState.Checked && hashPassword.VerifyFilePassExist() == false)
+                    {
+                        hashPassword.CreateAndWriteFilePass(usuario);
+                    }
                 }
                 else
                 {

@@ -8,17 +8,19 @@ namespace AppCloud_TSMIT
     {
         private readonly ConfigController config;
         private readonly LoginController loginController;
+        private readonly HashPassword hashPassword;
         
         public Form_MenuLogin()
         {
             InitializeComponent();
             config = new ConfigController();
+            hashPassword = new HashPassword();
             loginController = new LoginController(config, this);
         }
 
-        private void btn_Entrar_Click(object sender, EventArgs e)
+        private async void btn_Entrar_Click(object sender, EventArgs e)
         {
-            loginController.RequestAndResultLogin(txt_User.Text, txt_Pass.Text);
+            await loginController.RequestAndResultLogin(txt_User.Text, txt_Pass.Text);
         }
 
         private void btn_Suporte_Click(object sender, EventArgs e)
@@ -65,6 +67,16 @@ namespace AppCloud_TSMIT
         private void Form_MenuLogin_Load(object sender, EventArgs e)
         {
             txt_User.Select();
+            if (hashPassword.VerifyFilePassExist() == true)
+            {
+                box_LembrarMe.Checked = true;
+                txt_User.Text = hashPassword.ReadPassInFile()[0];
+                txt_Pass.Text = hashPassword.ReadPassInFile()[1];
+            }
+            else
+            {
+                box_LembrarMe.Checked= false;
+            }
         }
     }
 }

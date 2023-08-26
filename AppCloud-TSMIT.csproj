@@ -27,7 +27,7 @@
     <ProductName>AppCloud TSMIT</ProductName>
     <PublisherName>tsmit</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -98,6 +98,7 @@
     <Compile Include="Controller\ApplicationController.cs" />
     <Compile Include="Controller\ClientConnection.cs" />
     <Compile Include="Controller\ConfigController.cs" />
+    <Compile Include="Controller\HashPassword.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\ProcessController.cs" />
     <Compile Include="Dominio\Host.cs" />
@@ -117,6 +118,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form_MenuLogin.resx">
+      <DependentUpon>Form_MenuLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_MenuLogin.zu-ZA.resx">
       <DependentUpon>Form_MenuLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_MenuPrincipal.pt-BR.resx">
@@ -184,7 +188,6 @@
     <None Include="Assets\wallpaperBranco.png" />
     <None Include="Assets\wallpaperBrancoBMP.bmp" />
     <None Include="Assets\wallpaperBrancoMenor.bmp" />
-    <None Include="config.txt" />
     <Content Include="logoIcone.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
